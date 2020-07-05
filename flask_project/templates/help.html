@@ -1,0 +1,215 @@
+<!--
+    Name of file - help.html
+
+    Purpose of file - This file is the help page for our site. It describes what a periodic table is, explains the layout of the elements in our table, and shows our site's features.
+
+    Date of most recent revision - 6/3/20
+
+    Author(s) - Ethan Bradway, Matthew Hurm, Andrew Hagelthorn
+
+    Dependencies - None
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - Free Radical Periodic Table</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/styles/sidepages.css'>
+</head>
+
+<body style="width: var(--reader)">
+    <div id="header" class="bar topbar" style="height: 54px">
+        <h1>Help (User Guide/Manual)</h1>
+    </div>
+    <div class="subsection" style="margin-top: 54px">
+        <h1>How to use a periodic table</h1>
+        <p>This section will teach you how to read a periodic table if you don't know already.</p>
+        <p>If you already know, <a href=#features>click here</a> for site-specific features.</p>
+        <br>
+        <p>At any point in this page, if you need more information on a certain concept, click on a the link for a
+            Wikipedia article that explains it in much more detail.</p>
+        <div class="subsection">
+            <h2>Overview</h2>
+            <p>A periodic table is a chart used for looking up information about elements, i.e. types of atoms. The
+                table is set up logically - similar elements are close to eachother, and patterns in the table can be
+                used to instantly find information. Periodic tables are used extensively in nearly all chemistry labs -
+                amateur to professional.</p>
+        </div>
+        <div class="subsection">
+            <h2>The Element</h2>
+            <p>The periodic table is made up of elements. On almost all tables, including this one, elements are
+                displayed as boxes with information inside them.</p>
+            <p>Here is an enalarged example, with a side-by-side explanation of what each thing means:</p>
+            <div style="display: flex; margin-bottom: 1vw;">
+                <div style="display: flex; flex-flow: column nowrap; margin-right: 1vw;">
+                    <h3>Normal Element</h3>
+                    <button type=" submit" formaction="" onclick="" class="el hyd H"
+                        style="height: calc(var(--reader)*.3); width: calc(var(--reader)*.3); font-size: calc(var(--reader)*.3); flex: 0 0 auto;">
+                        <div class="el_num">1</div>
+                        <div class="el_weight">1.008</div>
+                        <div class="el_sym">H</div>
+                        <div class="el_name">Hydrogen</div>
+                    </button>
+                </div>
+                <div style="display: flex; flex-flow: column nowrap; margin-right: 1vw;">
+                    <h3>Element With Labels</h3>
+                    <button type=" submit" formaction="" onclick="" class="el hyd H"
+                        style="height: calc(var(--reader)*.3); width: calc(var(--reader)*.3); font-size: calc(var(--reader)*.3); flex: 0 0 auto;">
+                        <div class="el_num">Num.</div>
+                        <div class="el_weight">Weight</div>
+                        <div class="el_sym">Sym</div>
+                        <div class="el_name">Name</div>
+                    </button>
+                </div>
+            </div>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Atomic_number">Atomic Number</a> (Top-Left) --- The
+                    number of protons in that element.</li>
+                <li><a href="https://en.wikipedia.org/wiki/Relative_atomic_mass">Atomic Weight</a> (Top-Right) ---
+                    The average mass of isotopes (variants) of a natural sample of the element.</li>
+                <li><a href="https://en.wikipedia.org/wiki/Chemical_symbol">Atomic Symbol</a> (Center) --- A one or
+                    two letter abbreviation of the Element Name.</li>
+                <li><a href="https://en.wikipedia.org/wiki/Atomic_number">Element Name</a> (Bottom) --- The
+                    scientific name of the element.</li>
+            </ul>
+        </div>
+        <div class="subsection">
+            <h2>The Table</h2>
+            <p>The table orders elements into rows (periods) and columns (groups).</p>
+            <p>Each element has electrons, which form themselves into layers. <a
+                    href="https://en.wikipedia.org/wiki/Period_(periodic_table)">Periods</a> are split up by the
+                number
+                of layers an element has: Hydrogen has 1 layer, so its in the top period, Lithium has 2, so it's in
+                the
+                next period down, etc. </p>
+            <p>NOTE: Lanthanides and Actinides are NOT seperate rows - they expand out from the "Lanthanides:" and
+                "Actinides:" labels on the table. They are displayed below the rest of the table to make the table
+                easier to read.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Group_(periodic_table)">Groups</a> are split up roughly by the
+                number of electrons the outer layer has: Hydrogen has 1 electron, so it's in the leftmost layer,
+                Helium
+                has 2, which fills the layer, so it's in the rightmost period, etc.</p>
+        </div>
+    </div>
+    <div class="subsection" id="features">
+        <h1>Unique Features</h1>
+        <div class="subsection">
+            <h2>Coloring by type</h2>
+            <p>This feature is common in online periodic tables but not every site has it. An element's color
+                corresponds to its type - a group of elements with similar properties. </p>
+            <p>Here's a list:</p>
+            <ul>
+                <li>
+                    <div class="el hyd" style="width: 1.5em; height: 1.5em; font-size: inherit; display: inline-block">
+                    </div> --- Hydrogen (has its own type)
+                </li>
+                <li>
+                    <div class="el akm" style="width: 1.5em; height: 1.5em; font-size: inherit; display: inline-block">
+                    </div> --- <a href="https://en.wikipedia.org/wiki/Alkali_metal">Alkali Metals</a>
+                </li>
+                <li>
+                    <div class="el aem" style="width: 1.5em; height: 1.5em; font-size: inherit; display: inline-block">
+                    </div> --- <a href="https://en.wikipedia.org/wiki/Alkaline_earth_metal">Alkaline Earth
+                        Metals</a>
+                </li>
+                <li>
+                    <div class="el tsm" style="width: 1.5em; height: 1.5em; font-size: inherit; display: inline-block">
+                    </div> --- <a href="https://en.wikipedia.org/wiki/Transition_metal">Transition Metals</a>
+                </li>
+                <li>
+                    <div class="el ptm" style="width: 1.5em; height: 1.5em; font-size: inherit; display: inline-block">
+                    </div> --- <a href="https://en.wikipedia.org/wiki/Post-transition_metal">Post-Transition
+                        Metals</a>
+                </li>
+                <li>
+                    <div class="el oid" style="width: 1.5em; height: 1.5em; font-size: inherit; display: inline-block">
+                    </div> --- <a href="https://en.wikipedia.org/wiki/Metalloid">Metalloids</a>
+                </li>
+                <li>
+                    <div class="el nom" style="width: 1.5em; height: 1.5em; font-size: inherit; display: inline-block">
+                    </div> --- <a href="https://en.wikipedia.org/wiki/Nonmetal#Reactive_nonmetal">Reactive
+                        Nonmetals</a>
+                    (excluding hydrogen)
+                </li>
+                <li>
+                    <div class="el hal" style="width: 1.5em; height: 1.5em; font-size: inherit; display: inline-block">
+                    </div> --- <a href="https://en.wikipedia.org/wiki/Halogen">Halogens</a>
+                </li>
+                <li>
+                    <div class="el nog" style="width: 1.5em; height: 1.5em; font-size: inherit; display: inline-block">
+                    </div> --- <a href="https://en.wikipedia.org/wiki/Noble_gas">Noble Gases</a>
+                </li>
+                <li>
+                    <div class="el lan" style="width: 1.5em; height: 1.5em; font-size: inherit; display: inline-block">
+                    </div> --- <a href="https://en.wikipedia.org/wiki/Lanthanide">Lanthanides</a>
+                </li>
+                <li>
+                    <div class="el act" style="width: 1.5em; height: 1.5em; font-size: inherit; display: inline-block">
+                    </div> --- <a href="https://en.wikipedia.org/wiki/Actinide">Actinides</a>
+                </li>
+                <li>
+                    <div class="el unc" style="width: 1.5em; height: 1.5em; font-size: inherit; display: inline-block">
+                    </div> --- Uncategoized (currently represents no elements)
+                </li>
+            </ul>
+
+        </div>
+        <div class="subsection">
+            <h2>More Info page</h2>
+            <p>Clicking on an element takes you to a "more info" page, showing the element in greater detail, as
+                well as
+                additional information about the selected element.</p>
+            <p>Here's what it looks like:</p>
+            <div style="display: flex; margin-top: 10px; margin-bottom: 10px">
+                <img src="../static/images/moreinfo_1.png"></img>
+                <img src="../static/images/moreinfo_2.png"></img>
+            </div>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Group_(periodic_table)">Group</a> --- What column an
+                    element
+                    is in.</li>
+                <li><a href="https://en.wikipedia.org/wiki/Period_(periodic_table)">Period</a> --- What row an
+                    element
+                    is
+                    in.</li>
+                <li><a href="https://en.wikipedia.org/wiki/Electronegativity">Electronegativity</a> --- The strength
+                    that the element attracts free electrons.</li>
+                <li><a href="https://en.wikipedia.org/wiki/Names_for_sets_of_chemical_elements#Category">Type</a>
+                    ---
+                    Groups similar elements together. Used here colliquially, generally following IUPAC
+                    guidelines.</li>
+                <li>[DEBUG] Type (modified) --- Displays how element type + element symbol are processed to form a
+                    CSS
+                    tag. PENDING REMOVAL</li>
+            </ul>
+        </div>
+        <div class="subsection">
+            <h2>Search</h2>
+            <p>The search bar allows you to type the name of an element to instantly see its More Info page.</p>
+            <div style="display: flex; margin-top: 10px; margin-bottom: 10px">
+                <img src="../static/images/search_1.png"></img>
+                <img src="../static/images/search_2.png"></img>
+            </div>
+            <p>Select the search bar to start typing in it, to search, press Enter on your keyboard or click the
+                button.
+            </p>
+            <p>NOTE: You must spell the element name exactly right; there's no autocorrect. Capitalization doesn't
+                matter.</p>
+        </div>
+        <div class="subsection">
+            <h2>Filters</h2>
+            <p>Filters currently do nothing, and will likely not be implemented. They were planned to show only
+                elements
+                with specific features and filter out the rest.
+            <p>Their remnants in the header look like this:</p>
+            <div style="display: flex; margin-top: 10px; margin-bottom: 10px">
+                <img src="../static/images/filters.png"></img>
+            </div>
+        </div>
+    </div>
+
+
+</html>

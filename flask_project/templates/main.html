@@ -1,0 +1,917 @@
+<!--
+    Name of file - main.html
+
+    Purpose of file - This file is the core of our site. It displays our site's periodic table, using imported data from our database to populate each element's box, which is positioned using our CSS and can be clicked to view more information in a seperate tab. Additionally it renders the top and bottom bars of our site, the top bar containing branding, filters (unimplemented) and a search bar, and the bottom bar containing informational links.
+
+    Date of most recent revision - 6/1/20
+
+    Author(s) - Ethan Bradway, Matthew Hurm, Andrew Hagelthorn, Dave Nguyen (design consulting)
+
+    Dependencies - None
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Free Radical Periodic Table</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="../static/images/Molecule3.png">
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/styles/main.css'>
+    <script src='../static/main.js'></script>
+</head>
+
+<body>
+    <div id="header" class="bar topbar">
+        <div id="branding">
+            <img src="../static/images/Molecule3.png"></img>
+            <p>Free Radical Periodic Table</p>
+        </div>
+        <!-- will eventually be dynamic filters. unless -->
+        <div id="tags">
+            <a href="#link1">Link1</a>
+            <a href="#link2">Link2</a>
+            <a href="#link3">Link3</a>
+            <a href="#link4">Link4</a>
+        </div>
+        <!--search bar-->
+        <form action="" method="post" id="search">
+            <label for="element"></label>
+            <input type="text" name="element" class="search_field"></input>
+            <input type="submit" value="" class="search_button"></input>
+        </form>
+    </div>
+
+    <!--table region. it's a grid-->
+    <div id="wrapper--table">
+        <!--an element in the table. Order does not matter, CSS takes care of it-->
+        <!--it's a button. on click, goes to relevant "more info" page-->
+        <!--contains atomic number, atomic weight, symbol, name. CSS deals with that, febn() gets it from table-->
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(1).elementName}}';" class="el hyd H">
+            <div class="el_num">{{febn(1).atomicNumber}}</div>
+            <div class="el_weight">{{febn(1).atomicMass}}</div>
+            <div class="el_sym">{{febn(1).atomicSymbol}}</div>
+            <div class="el_name">{{febn(1).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(3).elementName}}';" class="el akm Li">
+            <div class="el_num">{{febn(3).atomicNumber}}</div>
+            <div class="el_weight">{{febn(3).atomicMass}}</div>
+            <div class="el_sym">{{febn(3).atomicSymbol}}</div>
+            <div class="el_name">{{febn(3).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(11).elementName}}';" class="el akm Na">
+            <div class="el_num">{{febn(11).atomicNumber}}</div>
+            <div class="el_weight">{{febn(11).atomicMass}}</div>
+            <div class="el_sym">{{febn(11).atomicSymbol}}</div>
+            <div class="el_name">{{febn(11).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(19).elementName}}';" class="el akm K">
+            <div class="el_num">{{febn(19).atomicNumber}}</div>
+            <div class="el_weight">{{febn(19).atomicMass}}</div>
+            <div class="el_sym">{{febn(19).atomicSymbol}}</div>
+            <div class="el_name">{{febn(19).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(37).elementName}}';" class="el akm Rb">
+            <div class="el_num">{{febn(37).atomicNumber}}</div>
+            <div class="el_weight">{{febn(37).atomicMass}}</div>
+            <div class="el_sym">{{febn(37).atomicSymbol}}</div>
+            <div class="el_name">{{febn(37).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(57).elementName}}';" class="el akm Cs">
+            <div class="el_num">{{febn(57).atomicNumber}}</div>
+            <div class="el_weight">{{febn(57).atomicMass}}</div>
+            <div class="el_sym">{{febn(57).atomicSymbol}}</div>
+            <div class="el_name">{{febn(57).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(87).elementName}}';" class="el akm Fr">
+            <div class="el_num">{{febn(87).atomicNumber}}</div>
+            <div class="el_weight">{{febn(87).atomicMass}}</div>
+            <div class="el_sym">{{febn(87).atomicSymbol}}</div>
+            <div class="el_name">{{febn(87).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(4).elementName}}';" class="el aem Be">
+            <div class="el_num">{{febn(4).atomicNumber}}</div>
+            <div class="el_weight">{{febn(4).atomicMass}}</div>
+            <div class="el_sym">{{febn(4).atomicSymbol}}</div>
+            <div class="el_name">{{febn(4).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(12).elementName}}';" class="el aem Mg">
+            <div class="el_num">{{febn(12).atomicNumber}}</div>
+            <div class="el_weight">{{febn(12).atomicMass}}</div>
+            <div class="el_sym">{{febn(12).atomicSymbol}}</div>
+            <div class="el_name">{{febn(12).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(20).elementName}}';" class="el aem Ca">
+            <div class="el_num">{{febn(20).atomicNumber}}</div>
+            <div class="el_weight">{{febn(20).atomicMass}}</div>
+            <div class="el_sym">{{febn(20).atomicSymbol}}</div>
+            <div class="el_name">{{febn(20).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(38).elementName}}';" class="el aem Sr">
+            <div class="el_num">{{febn(38).atomicNumber}}</div>
+            <div class="el_weight">{{febn(38).atomicMass}}</div>
+            <div class="el_sym">{{febn(38).atomicSymbol}}</div>
+            <div class="el_name">{{febn(38).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(56).elementName}}';" class="el aem Ba">
+            <div class="el_num">{{febn(56).atomicNumber}}</div>
+            <div class="el_weight">{{febn(56).atomicMass}}</div>
+            <div class="el_sym">{{febn(56).atomicSymbol}}</div>
+            <div class="el_name">{{febn(56).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(88).elementName}}';" class="el aem Ra">
+            <div class="el_num">{{febn(88).atomicNumber}}</div>
+            <div class="el_weight">{{febn(88).atomicMass}}</div>
+            <div class="el_sym">{{febn(88).atomicSymbol}}</div>
+            <div class="el_name">{{febn(88).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(21).elementName}}';" class="el tsm Sc">
+            <div class="el_num">{{febn(21).atomicNumber}}</div>
+            <div class="el_weight">{{febn(21).atomicMass}}</div>
+            <div class="el_sym">{{febn(21).atomicSymbol}}</div>
+            <div class="el_name">{{febn(21).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(39).elementName}}';" class="el tsm Y">
+            <div class="el_num">{{febn(39).atomicNumber}}</div>
+            <div class="el_weight">{{febn(39).atomicMass}}</div>
+            <div class="el_sym">{{febn(39).atomicSymbol}}</div>
+            <div class="el_name">{{febn(39).elementName}}</div>
+        </button>
+
+        <div class="el lan sLan">
+            <div class="el_name spacer_name">Lanthanides:</div>
+        </div>
+        <div class="el act sAct">
+            <div class="el_name spacer_name">Actinides:</div>
+        </div>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(22).elementName}}';" class="el tsm Ti">
+            <div class="el_num">{{febn(22).atomicNumber}}</div>
+            <div class="el_weight">{{febn(22).atomicMass}}</div>
+            <div class="el_sym">{{febn(22).atomicSymbol}}</div>
+            <div class="el_name">{{febn(22).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(40).elementName}}';" class="el tsm Zr">
+            <div class="el_num">{{febn(40).atomicNumber}}</div>
+            <div class="el_weight">{{febn(40).atomicMass}}</div>
+            <div class="el_sym">{{febn(40).atomicSymbol}}</div>
+            <div class="el_name">{{febn(40).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(72).elementName}}';" class="el tsm Hf">
+            <div class="el_num">{{febn(72).atomicNumber}}</div>
+            <div class="el_weight">{{febn(72).atomicMass}}</div>
+            <div class="el_sym">{{febn(72).atomicSymbol}}</div>
+            <div class="el_name">{{febn(72).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(104).elementName}}';" class="el tsm Rf">
+            <div class="el_num">{{febn(104).atomicNumber}}</div>
+            <div class="el_weight">{{febn(104).atomicMass}}</div>
+            <div class="el_sym">{{febn(104).atomicSymbol}}</div>
+            <div class="el_name">{{febn(104).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(23).elementName}}';" class="el tsm V">
+            <div class="el_num">{{febn(23).atomicNumber}}</div>
+            <div class="el_weight">{{febn(23).atomicMass}}</div>
+            <div class="el_sym">{{febn(23).atomicSymbol}}</div>
+            <div class="el_name">{{febn(23).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(41).elementName}}';" class="el tsm Nb">
+            <div class="el_num">{{febn(41).atomicNumber}}</div>
+            <div class="el_weight">{{febn(41).atomicMass}}</div>
+            <div class="el_sym">{{febn(41).atomicSymbol}}</div>
+            <div class="el_name">{{febn(41).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(73).elementName}}';" class="el tsm Ta">
+            <div class="el_num">{{febn(73).atomicNumber}}</div>
+            <div class="el_weight">{{febn(73).atomicMass}}</div>
+            <div class="el_sym">{{febn(73).atomicSymbol}}</div>
+            <div class="el_name">{{febn(73).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(105).elementName}}';" class="el tsm Db">
+            <div class="el_num">{{febn(105).atomicNumber}}</div>
+            <div class="el_weight">{{febn(105).atomicMass}}</div>
+            <div class="el_sym">{{febn(105).atomicSymbol}}</div>
+            <div class="el_name">{{febn(105).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(24).elementName}}';" class="el tsm Cr">
+            <div class="el_num">{{febn(24).atomicNumber}}</div>
+            <div class="el_weight">{{febn(24).atomicMass}}</div>
+            <div class="el_sym">{{febn(24).atomicSymbol}}</div>
+            <div class="el_name">{{febn(24).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(42).elementName}}';" class="el tsm Mo">
+            <div class="el_num">{{febn(42).atomicNumber}}</div>
+            <div class="el_weight">{{febn(42).atomicMass}}</div>
+            <div class="el_sym">{{febn(42).atomicSymbol}}</div>
+            <div class="el_name">{{febn(42).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(74).elementName}}';" class="el tsm W">
+            <div class="el_num">{{febn(74).atomicNumber}}</div>
+            <div class="el_weight">{{febn(74).atomicMass}}</div>
+            <div class="el_sym">{{febn(74).atomicSymbol}}</div>
+            <div class="el_name">{{febn(74).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(106).elementName}}';" class="el tsm Sg">
+            <div class="el_num">{{febn(106).atomicNumber}}</div>
+            <div class="el_weight">{{febn(106).atomicMass}}</div>
+            <div class="el_sym">{{febn(106).atomicSymbol}}</div>
+            <div class="el_name">{{febn(106).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(25).elementName}}';" class="el tsm Mn">
+            <div class="el_num">{{febn(25).atomicNumber}}</div>
+            <div class="el_weight">{{febn(25).atomicMass}}</div>
+            <div class="el_sym">{{febn(25).atomicSymbol}}</div>
+            <div class="el_name">{{febn(25).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(43).elementName}}';" class="el tsm Tc">
+            <div class="el_num">{{febn(43).atomicNumber}}</div>
+            <div class="el_weight">{{febn(43).atomicMass}}</div>
+            <div class="el_sym">{{febn(43).atomicSymbol}}</div>
+            <div class="el_name">{{febn(43).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(75).elementName}}';" class="el tsm Re">
+            <div class="el_num">{{febn(75).atomicNumber}}</div>
+            <div class="el_weight">{{febn(75).atomicMass}}</div>
+            <div class="el_sym">{{febn(75).atomicSymbol}}</div>
+            <div class="el_name">{{febn(75).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(107).elementName}}';" class="el tsm Bh">
+            <div class="el_num">{{febn(107).atomicNumber}}</div>
+            <div class="el_weight">{{febn(107).atomicMass}}</div>
+            <div class="el_sym">{{febn(107).atomicSymbol}}</div>
+            <div class="el_name">{{febn(107).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(26).elementName}}';" class="el tsm Fe">
+            <div class="el_num">{{febn(26).atomicNumber}}</div>
+            <div class="el_weight">{{febn(26).atomicMass}}</div>
+            <div class="el_sym">{{febn(26).atomicSymbol}}</div>
+            <div class="el_name">{{febn(26).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(44).elementName}}';" class="el tsm Ru">
+            <div class="el_num">{{febn(44).atomicNumber}}</div>
+            <div class="el_weight">{{febn(44).atomicMass}}</div>
+            <div class="el_sym">{{febn(44).atomicSymbol}}</div>
+            <div class="el_name">{{febn(44).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(76).elementName}}';" class="el tsm Os">
+            <div class="el_num">{{febn(76).atomicNumber}}</div>
+            <div class="el_weight">{{febn(76).atomicMass}}</div>
+            <div class="el_sym">{{febn(76).atomicSymbol}}</div>
+            <div class="el_name">{{febn(76).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(108).elementName}}';" class="el tsm Hs">
+            <div class="el_num">{{febn(108).atomicNumber}}</div>
+            <div class="el_weight">{{febn(108).atomicMass}}</div>
+            <div class="el_sym">{{febn(108).atomicSymbol}}</div>
+            <div class="el_name">{{febn(108).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(27).elementName}}';" class="el tsm Co">
+            <div class="el_num">{{febn(27).atomicNumber}}</div>
+            <div class="el_weight">{{febn(27).atomicMass}}</div>
+            <div class="el_sym">{{febn(27).atomicSymbol}}</div>
+            <div class="el_name">{{febn(27).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(45).elementName}}';" class="el tsm Rh">
+            <div class="el_num">{{febn(45).atomicNumber}}</div>
+            <div class="el_weight">{{febn(45).atomicMass}}</div>
+            <div class="el_sym">{{febn(45).atomicSymbol}}</div>
+            <div class="el_name">{{febn(45).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(77).elementName}}';" class="el tsm Ir">
+            <div class="el_num">{{febn(77).atomicNumber}}</div>
+            <div class="el_weight">{{febn(77).atomicMass}}</div>
+            <div class="el_sym">{{febn(77).atomicSymbol}}</div>
+            <div class="el_name">{{febn(77).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(109).elementName}}';" class="el tsm Mt">
+            <div class="el_num">{{febn(109).atomicNumber}}</div>
+            <div class="el_weight">{{febn(109).atomicMass}}</div>
+            <div class="el_sym">{{febn(109).atomicSymbol}}</div>
+            <div class="el_name">{{febn(109).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(28).elementName}}';" class="el tsm Ni">
+            <div class="el_num">{{febn(28).atomicNumber}}</div>
+            <div class="el_weight">{{febn(28).atomicMass}}</div>
+            <div class="el_sym">{{febn(28).atomicSymbol}}</div>
+            <div class="el_name">{{febn(28).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(46).elementName}}';" class="el tsm Pd">
+            <div class="el_num">{{febn(46).atomicNumber}}</div>
+            <div class="el_weight">{{febn(46).atomicMass}}</div>
+            <div class="el_sym">{{febn(46).atomicSymbol}}</div>
+            <div class="el_name">{{febn(46).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(78).elementName}}';" class="el tsm Pt">
+            <div class="el_num">{{febn(78).atomicNumber}}</div>
+            <div class="el_weight">{{febn(78).atomicMass}}</div>
+            <div class="el_sym">{{febn(78).atomicSymbol}}</div>
+            <div class="el_name">{{febn(78).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(110).elementName}}';" class="el tsm Ds">
+            <div class="el_num">{{febn(110).atomicNumber}}</div>
+            <div class="el_weight">{{febn(110).atomicMass}}</div>
+            <div class="el_sym">{{febn(110).atomicSymbol}}</div>
+            <div class="el_name">{{febn(110).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(29).elementName}}';" class="el tsm Cu">
+            <div class="el_num">{{febn(29).atomicNumber}}</div>
+            <div class="el_weight">{{febn(29).atomicMass}}</div>
+            <div class="el_sym">{{febn(29).atomicSymbol}}</div>
+            <div class="el_name">{{febn(29).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(47).elementName}}';" class="el tsm Ag">
+            <div class="el_num">{{febn(47).atomicNumber}}</div>
+            <div class="el_weight">{{febn(47).atomicMass}}</div>
+            <div class="el_sym">{{febn(47).atomicSymbol}}</div>
+            <div class="el_name">{{febn(47).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(79).elementName}}';" class="el tsm Au">
+            <div class="el_num">{{febn(79).atomicNumber}}</div>
+            <div class="el_weight">{{febn(79).atomicMass}}</div>
+            <div class="el_sym">{{febn(79).atomicSymbol}}</div>
+            <div class="el_name">{{febn(79).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(111).elementName}}';" class="el tsm Rg">
+            <div class="el_num">{{febn(111).atomicNumber}}</div>
+            <div class="el_weight">{{febn(111).atomicMass}}</div>
+            <div class="el_sym">{{febn(111).atomicSymbol}}</div>
+            <div class="el_name">{{febn(111).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(30).elementName}}';" class="el tsm Zn">
+            <div class="el_num">{{febn(30).atomicNumber}}</div>
+            <div class="el_weight">{{febn(30).atomicMass}}</div>
+            <div class="el_sym">{{febn(30).atomicSymbol}}</div>
+            <div class="el_name">{{febn(30).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(48).elementName}}';" class="el tsm Cd">
+            <div class="el_num">{{febn(48).atomicNumber}}</div>
+            <div class="el_weight">{{febn(48).atomicMass}}</div>
+            <div class="el_sym">{{febn(48).atomicSymbol}}</div>
+            <div class="el_name">{{febn(48).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(80).elementName}}';" class="el tsm Hg">
+            <div class="el_num">{{febn(80).atomicNumber}}</div>
+            <div class="el_weight">{{febn(80).atomicMass}}</div>
+            <div class="el_sym">{{febn(80).atomicSymbol}}</div>
+            <div class="el_name">{{febn(80).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(112).elementName}}';" class="el tsm Cn">
+            <div class="el_num">{{febn(112).atomicNumber}}</div>
+            <div class="el_weight">{{febn(112).atomicMass}}</div>
+            <div class="el_sym">{{febn(112).atomicSymbol}}</div>
+            <div class="el_name">{{febn(112).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(5).elementName}}';" class="el oid B">
+            <div class="el_num">{{febn(5).atomicNumber}}</div>
+            <div class="el_weight">{{febn(5).atomicMass}}</div>
+            <div class="el_sym">{{febn(5).atomicSymbol}}</div>
+            <div class="el_name">{{febn(5).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(13).elementName}}';" class="el ptm Al">
+            <div class="el_num">{{febn(13).atomicNumber}}</div>
+            <div class="el_weight">{{febn(13).atomicMass}}</div>
+            <div class="el_sym">{{febn(13).atomicSymbol}}</div>
+            <div class="el_name">{{febn(13).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(31).elementName}}';" class="el ptm Ga">
+            <div class="el_num">{{febn(31).atomicNumber}}</div>
+            <div class="el_weight">{{febn(31).atomicMass}}</div>
+            <div class="el_sym">{{febn(31).atomicSymbol}}</div>
+            <div class="el_name">{{febn(31).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(49).elementName}}';" class="el ptm In">
+            <div class="el_num">{{febn(49).atomicNumber}}</div>
+            <div class="el_weight">{{febn(49).atomicMass}}</div>
+            <div class="el_sym">{{febn(49).atomicSymbol}}</div>
+            <div class="el_name">{{febn(49).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(81).elementName}}';" class="el ptm Tl">
+            <div class="el_num">{{febn(81).atomicNumber}}</div>
+            <div class="el_weight">{{febn(81).atomicMass}}</div>
+            <div class="el_sym">{{febn(81).atomicSymbol}}</div>
+            <div class="el_name">{{febn(81).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(113).elementName}}';" class="el ptm Nh">
+            <div class="el_num">{{febn(113).atomicNumber}}</div>
+            <div class="el_weight">{{febn(113).atomicMass}}</div>
+            <div class="el_sym">{{febn(113).atomicSymbol}}</div>
+            <div class="el_name">{{febn(113).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(6).elementName}}';" class="el nom C">
+            <div class="el_num">{{febn(6).atomicNumber}}</div>
+            <div class="el_weight">{{febn(6).atomicMass}}</div>
+            <div class="el_sym">{{febn(6).atomicSymbol}}</div>
+            <div class="el_name">{{febn(6).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(14).elementName}}';" class="el oid Si">
+            <div class="el_num">{{febn(14).atomicNumber}}</div>
+            <div class="el_weight">{{febn(14).atomicMass}}</div>
+            <div class="el_sym">{{febn(14).atomicSymbol}}</div>
+            <div class="el_name">{{febn(14).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(32).elementName}}';" class="el oid Ge">
+            <div class="el_num">{{febn(32).atomicNumber}}</div>
+            <div class="el_weight">{{febn(32).atomicMass}}</div>
+            <div class="el_sym">{{febn(32).atomicSymbol}}</div>
+            <div class="el_name">{{febn(32).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(50).elementName}}';" class="el ptm Sn">
+            <div class="el_num">{{febn(50).atomicNumber}}</div>
+            <div class="el_weight">{{febn(50).atomicMass}}</div>
+            <div class="el_sym">{{febn(50).atomicSymbol}}</div>
+            <div class="el_name">{{febn(50).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(82).elementName}}';" class="el ptm Pb">
+            <div class="el_num">{{febn(82).atomicNumber}}</div>
+            <div class="el_weight">{{febn(82).atomicMass}}</div>
+            <div class="el_sym">{{febn(82).atomicSymbol}}</div>
+            <div class="el_name">{{febn(82).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(114).elementName}}';" class="el ptm Fl">
+            <div class="el_num">{{febn(114).atomicNumber}}</div>
+            <div class="el_weight">{{febn(114).atomicMass}}</div>
+            <div class="el_sym">{{febn(114).atomicSymbol}}</div>
+            <div class="el_name">{{febn(114).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(7).elementName}}';" class="el nom N">
+            <div class="el_num">{{febn(7).atomicNumber}}</div>
+            <div class="el_weight">{{febn(7).atomicMass}}</div>
+            <div class="el_sym">{{febn(7).atomicSymbol}}</div>
+            <div class="el_name">{{febn(7).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(15).elementName}}';" class="el nom P">
+            <div class="el_num">{{febn(15).atomicNumber}}</div>
+            <div class="el_weight">{{febn(15).atomicMass}}</div>
+            <div class="el_sym">{{febn(15).atomicSymbol}}</div>
+            <div class="el_name">{{febn(15).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(33).elementName}}';" class="el oid As">
+            <div class="el_num">{{febn(33).atomicNumber}}</div>
+            <div class="el_weight">{{febn(33).atomicMass}}</div>
+            <div class="el_sym">{{febn(33).atomicSymbol}}</div>
+            <div class="el_name">{{febn(33).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(51).elementName}}';" class="el oid Sb">
+            <div class="el_num">{{febn(51).atomicNumber}}</div>
+            <div class="el_weight">{{febn(51).atomicMass}}</div>
+            <div class="el_sym">{{febn(51).atomicSymbol}}</div>
+            <div class="el_name">{{febn(51).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(83).elementName}}';" class="el ptm Bi">
+            <div class="el_num">{{febn(83).atomicNumber}}</div>
+            <div class="el_weight">{{febn(83).atomicMass}}</div>
+            <div class="el_sym">{{febn(83).atomicSymbol}}</div>
+            <div class="el_name">{{febn(83).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(115).elementName}}';" class="el ptm Mc">
+            <div class="el_num">{{febn(115).atomicNumber}}</div>
+            <div class="el_weight">{{febn(115).atomicMass}}</div>
+            <div class="el_sym">{{febn(115).atomicSymbol}}</div>
+            <div class="el_name">{{febn(115).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(8).elementName}}';" class="el nom O">
+            <div class="el_num">{{febn(8).atomicNumber}}</div>
+            <div class="el_weight">{{febn(8).atomicMass}}</div>
+            <div class="el_sym">{{febn(8).atomicSymbol}}</div>
+            <div class="el_name">{{febn(8).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(16).elementName}}';" class="el nom S">
+            <div class="el_num">{{febn(16).atomicNumber}}</div>
+            <div class="el_weight">{{febn(16).atomicMass}}</div>
+            <div class="el_sym">{{febn(16).atomicSymbol}}</div>
+            <div class="el_name">{{febn(16).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(34).elementName}}';" class="el nom Se">
+            <div class="el_num">{{febn(34).atomicNumber}}</div>
+            <div class="el_weight">{{febn(34).atomicMass}}</div>
+            <div class="el_sym">{{febn(34).atomicSymbol}}</div>
+            <div class="el_name">{{febn(34).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(52).elementName}}';" class="el oid Te">
+            <div class="el_num">{{febn(52).atomicNumber}}</div>
+            <div class="el_weight">{{febn(52).atomicMass}}</div>
+            <div class="el_sym">{{febn(52).atomicSymbol}}</div>
+            <div class="el_name">{{febn(52).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(84).elementName}}';" class="el oid Po">
+            <div class="el_num">{{febn(84).atomicNumber}}</div>
+            <div class="el_weight">{{febn(84).atomicMass}}</div>
+            <div class="el_sym">{{febn(84).atomicSymbol}}</div>
+            <div class="el_name">{{febn(84).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(116).elementName}}';" class="el ptm Lv">
+            <div class="el_num">{{febn(116).atomicNumber}}</div>
+            <div class="el_weight">{{febn(116).atomicMass}}</div>
+            <div class="el_sym">{{febn(116).atomicSymbol}}</div>
+            <div class="el_name">{{febn(116).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(9).elementName}}';" class="el hal F">
+            <div class="el_num">{{febn(9).atomicNumber}}</div>
+            <div class="el_weight">{{febn(9).atomicMass}}</div>
+            <div class="el_sym">{{febn(9).atomicSymbol}}</div>
+            <div class="el_name">{{febn(9).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(11).elementName}}';" class="el hal Cl">
+            <div class="el_num">{{febn(17).atomicNumber}}</div>
+            <div class="el_weight">{{febn(17).atomicMass}}</div>
+            <div class="el_sym">{{febn(17).atomicSymbol}}</div>
+            <div class="el_name">{{febn(17).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(35).elementName}}';" class="el hal Br">
+            <div class="el_num">{{febn(35).atomicNumber}}</div>
+            <div class="el_weight">{{febn(35).atomicMass}}</div>
+            <div class="el_sym">{{febn(35).atomicSymbol}}</div>
+            <div class="el_name">{{febn(35).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(53).elementName}}';" class="el hal I">
+            <div class="el_num">{{febn(53).atomicNumber}}</div>
+            <div class="el_weight">{{febn(53).atomicMass}}</div>
+            <div class="el_sym">{{febn(53).atomicSymbol}}</div>
+            <div class="el_name">{{febn(53).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(85).elementName}}';" class="el hal At">
+            <div class="el_num">{{febn(85).atomicNumber}}</div>
+            <div class="el_weight">{{febn(85).atomicMass}}</div>
+            <div class="el_sym">{{febn(85).atomicSymbol}}</div>
+            <div class="el_name">{{febn(85).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(117).elementName}}';" class="el hal Ts">
+            <div class="el_num">{{febn(117).atomicNumber}}</div>
+            <div class="el_weight">{{febn(117).atomicMass}}</div>
+            <div class="el_sym">{{febn(117).atomicSymbol}}</div>
+            <div class="el_name">{{febn(117).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(2).elementName}}';" class="el nog He">
+            <div class="el_num">{{febn(2).atomicNumber}}</div>
+            <div class="el_weight">{{febn(2).atomicMass}}</div>
+            <div class="el_sym">{{febn(2).atomicSymbol}}</div>
+            <div class="el_name">{{febn(2).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(10).elementName}}';" class="el nog Ne">
+            <div class="el_num">{{febn(10).atomicNumber}}</div>
+            <div class="el_weight">{{febn(10).atomicMass}}</div>
+            <div class="el_sym">{{febn(10).atomicSymbol}}</div>
+            <div class="el_name">{{febn(10).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(18).elementName}}';" class="el nog Ar">
+            <div class="el_num">{{febn(18).atomicNumber}}</div>
+            <div class="el_weight">{{febn(18).atomicMass}}</div>
+            <div class="el_sym">{{febn(18).atomicSymbol}}</div>
+            <div class="el_name">{{febn(18).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(36).elementName}}';" class="el nog Kr">
+            <div class="el_num">{{febn(36).atomicNumber}}</div>
+            <div class="el_weight">{{febn(36).atomicMass}}</div>
+            <div class="el_sym">{{febn(36).atomicSymbol}}</div>
+            <div class="el_name">{{febn(36).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(54).elementName}}';" class="el nog Xe">
+            <div class="el_num">{{febn(54).atomicNumber}}</div>
+            <div class="el_weight">{{febn(54).atomicMass}}</div>
+            <div class="el_sym">{{febn(54).atomicSymbol}}</div>
+            <div class="el_name">{{febn(54).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(86).elementName}}';" class="el nog Rn">
+            <div class="el_num">{{febn(86).atomicNumber}}</div>
+            <div class="el_weight">{{febn(86).atomicMass}}</div>
+            <div class="el_sym">{{febn(86).atomicSymbol}}</div>
+            <div class="el_name">{{febn(86).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(118).elementName}}';" class="el nog Og">
+            <div class="el_num">{{febn(118).atomicNumber}}</div>
+            <div class="el_weight">{{febn(118).atomicMass}}</div>
+            <div class="el_sym">{{febn(118).atomicSymbol}}</div>
+            <div class="el_name">{{febn(118).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(57).elementName}}';" class="el lan La">
+            <div class="el_num">{{febn(57).atomicNumber}}</div>
+            <div class="el_weight">{{febn(57).atomicMass}}</div>
+            <div class="el_sym">{{febn(57).atomicSymbol}}</div>
+            <div class="el_name">{{febn(57).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(58).elementName}}';" class="el lan Ce">
+            <div class="el_num">{{febn(58).atomicNumber}}</div>
+            <div class="el_weight">{{febn(58).atomicMass}}</div>
+            <div class="el_sym">{{febn(58).atomicSymbol}}</div>
+            <div class="el_name">{{febn(58).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(59).elementName}}';" class="el lan Pr">
+            <div class="el_num">{{febn(59).atomicNumber}}</div>
+            <div class="el_weight">{{febn(59).atomicMass}}</div>
+            <div class="el_sym">{{febn(59).atomicSymbol}}</div>
+            <div class="el_name">{{febn(59).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(60).elementName}}';" class="el lan Nd">
+            <div class="el_num">{{febn(60).atomicNumber}}</div>
+            <div class="el_weight">{{febn(60).atomicMass}}</div>
+            <div class="el_sym">{{febn(60).atomicSymbol}}</div>
+            <div class="el_name">{{febn(60).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(61).elementName}}';" class="el lan Pm">
+            <div class="el_num">{{febn(61).atomicNumber}}</div>
+            <div class="el_weight">{{febn(61).atomicMass}}</div>
+            <div class="el_sym">{{febn(61).atomicSymbol}}</div>
+            <div class="el_name">{{febn(61).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(62).elementName}}';" class="el lan Sm">
+            <div class="el_num">{{febn(62).atomicNumber}}</div>
+            <div class="el_weight">{{febn(62).atomicMass}}</div>
+            <div class="el_sym">{{febn(62).atomicSymbol}}</div>
+            <div class="el_name">{{febn(62).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(63).elementName}}';" class="el lan Eu">
+            <div class="el_num">{{febn(63).atomicNumber}}</div>
+            <div class="el_weight">{{febn(63).atomicMass}}</div>
+            <div class="el_sym">{{febn(63).atomicSymbol}}</div>
+            <div class="el_name">{{febn(63).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(64).elementName}}';" class="el lan Gd">
+            <div class="el_num">{{febn(64).atomicNumber}}</div>
+            <div class="el_weight">{{febn(64).atomicMass}}</div>
+            <div class="el_sym">{{febn(64).atomicSymbol}}</div>
+            <div class="el_name">{{febn(64).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(65).elementName}}';" class="el lan Tb">
+            <div class="el_num">{{febn(65).atomicNumber}}</div>
+            <div class="el_weight">{{febn(65).atomicMass}}</div>
+            <div class="el_sym">{{febn(65).atomicSymbol}}</div>
+            <div class="el_name">{{febn(65).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(66).elementName}}';" class="el lan Dy">
+            <div class="el_num">{{febn(66).atomicNumber}}</div>
+            <div class="el_weight">{{febn(66).atomicMass}}</div>
+            <div class="el_sym">{{febn(66).atomicSymbol}}</div>
+            <div class="el_name">{{febn(66).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(67).elementName}}';" class="el lan Ho">
+            <div class="el_num">{{febn(67).atomicNumber}}</div>
+            <div class="el_weight">{{febn(67).atomicMass}}</div>
+            <div class="el_sym">{{febn(67).atomicSymbol}}</div>
+            <div class="el_name">{{febn(67).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(68).elementName}}';" class="el lan Er">
+            <div class="el_num">{{febn(68).atomicNumber}}</div>
+            <div class="el_weight">{{febn(68).atomicMass}}</div>
+            <div class="el_sym">{{febn(68).atomicSymbol}}</div>
+            <div class="el_name">{{febn(68).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(69).elementName}}';" class="el lan Tm">
+            <div class="el_num">{{febn(69).atomicNumber}}</div>
+            <div class="el_weight">{{febn(69).atomicMass}}</div>
+            <div class="el_sym">{{febn(69).atomicSymbol}}</div>
+            <div class="el_name">{{febn(69).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(70).elementName}}';" class="el lan Yb">
+            <div class="el_num">{{febn(70).atomicNumber}}</div>
+            <div class="el_weight">{{febn(70).atomicMass}}</div>
+            <div class="el_sym">{{febn(70).atomicSymbol}}</div>
+            <div class="el_name">{{febn(70).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(71).elementName}}';" class="el lan Lu">
+            <div class="el_num">{{febn(71).atomicNumber}}</div>
+            <div class="el_weight">{{febn(71).atomicMass}}</div>
+            <div class="el_sym">{{febn(71).atomicSymbol}}</div>
+            <div class="el_name">{{febn(71).elementName}}</div>
+        </button>
+
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(89).elementName}}';" class="el act Ac">
+            <div class="el_num">{{febn(89).atomicNumber}}</div>
+            <div class="el_weight">{{febn(89).atomicMass}}</div>
+            <div class="el_sym">{{febn(89).atomicSymbol}}</div>
+            <div class="el_name">{{febn(89).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(90).elementName}}';" class="el act Th">
+            <div class="el_num">{{febn(90).atomicNumber}}</div>
+            <div class="el_weight">{{febn(90).atomicMass}}</div>
+            <div class="el_sym">{{febn(90).atomicSymbol}}</div>
+            <div class="el_name">{{febn(90).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(91).elementName}}';" class="el act Pa">
+            <div class="el_num">{{febn(91).atomicNumber}}</div>
+            <div class="el_weight">{{febn(91).atomicMass}}</div>
+            <div class="el_sym">{{febn(91).atomicSymbol}}</div>
+            <div class="el_name">{{febn(91).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(92).elementName}}';" class="el act U">
+            <div class="el_num">{{febn(92).atomicNumber}}</div>
+            <div class="el_weight">{{febn(92).atomicMass}}</div>
+            <div class="el_sym">{{febn(92).atomicSymbol}}</div>
+            <div class="el_name">{{febn(92).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(93).elementName}}';" class="el act Np">
+            <div class="el_num">{{febn(93).atomicNumber}}</div>
+            <div class="el_weight">{{febn(93).atomicMass}}</div>
+            <div class="el_sym">{{febn(93).atomicSymbol}}</div>
+            <div class="el_name">{{febn(93).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(94).elementName}}';" class="el act Pu">
+            <div class="el_num">{{febn(94).atomicNumber}}</div>
+            <div class="el_weight">{{febn(94).atomicMass}}</div>
+            <div class="el_sym">{{febn(94).atomicSymbol}}</div>
+            <div class="el_name">{{febn(94).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(95).elementName}}';" class="el act Am">
+            <div class="el_num">{{febn(95).atomicNumber}}</div>
+            <div class="el_weight">{{febn(95).atomicMass}}</div>
+            <div class="el_sym">{{febn(95).atomicSymbol}}</div>
+            <div class="el_name">{{febn(95).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(96).elementName}}';" class="el act Cm">
+            <div class="el_num">{{febn(96).atomicNumber}}</div>
+            <div class="el_weight">{{febn(96).atomicMass}}</div>
+            <div class="el_sym">{{febn(96).atomicSymbol}}</div>
+            <div class="el_name">{{febn(96).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(97).elementName}}';" class="el act Bk">
+            <div class="el_num">{{febn(97).atomicNumber}}</div>
+            <div class="el_weight">{{febn(97).atomicMass}}</div>
+            <div class="el_sym">{{febn(97).atomicSymbol}}</div>
+            <div class="el_name">{{febn(97).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(98).elementName}}';" class="el act Cf">
+            <div class="el_num">{{febn(98).atomicNumber}}</div>
+            <div class="el_weight">{{febn(98).atomicMass}}</div>
+            <div class="el_sym">{{febn(98).atomicSymbol}}</div>
+            <div class="el_name">{{febn(98).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(99).elementName}}';" class="el act Es">
+            <div class="el_num">{{febn(99).atomicNumber}}</div>
+            <div class="el_weight">{{febn(99).atomicMass}}</div>
+            <div class="el_sym">{{febn(99).atomicSymbol}}</div>
+            <div class="el_name">{{febn(99).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(100).elementName}}';" class="el act Fm">
+            <div class="el_num">{{febn(100).atomicNumber}}</div>
+            <div class="el_weight">{{febn(100).atomicMass}}</div>
+            <div class="el_sym">{{febn(100).atomicSymbol}}</div>
+            <div class="el_name">{{febn(100).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(101).elementName}}';" class="el act Md">
+            <div class="el_num">{{febn(101).atomicNumber}}</div>
+            <div class="el_weight">{{febn(101).atomicMass}}</div>
+            <div class="el_sym">{{febn(101).atomicSymbol}}</div>
+            <div class="el_name">{{febn(101).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(102).elementName}}';" class="el act No">
+            <div class="el_num">{{febn(102).atomicNumber}}</div>
+            <div class="el_weight">{{febn(102).atomicMass}}</div>
+            <div class="el_sym">{{febn(102).atomicSymbol}}</div>
+            <div class="el_name">{{febn(102).elementName}}</div>
+        </button>
+        <button type="submit" formaction="#moreinfo"
+            onclick="window.location.href = '/moreinfo/{{febn(103).elementName}}';" class="el act Lr">
+            <div class="el_num">{{febn(103).atomicNumber}}</div>
+            <div class="el_weight">{{febn(103).atomicMass}}</div>
+            <div class="el_sym">{{febn(103).atomicSymbol}}</div>
+            <div class="el_name">{{febn(103).elementName}}</div>
+        </button>
+    </div>
+
+    <!--Bar at bottom of page, containing informational links-->
+    <div id="footer" class="bar botbar">
+        <a href="accessibility">Accessibility</a>
+        <a href="help">Help!</a>
+        <a href="about">About</a>
+        <a href="contact">Contact Us</a>
+    </div>
+</body>
+
+</html>
